@@ -34,6 +34,11 @@ module.exports = {
                   },
                 ],
               },
+              {
+                test: /\.m?js$/,
+                enforce: 'pre',
+                use: ['source-map-loader'],
+              },
         ]
     },
     // Resolve .js and .jsx file extensions when importing
