@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
+import App from './features/App.jsx';
 
 ReactDOM.render(<App />, document.getElementById('root')); // Pointing to the 'root' element in the public/index.html where our app will be attached
 
