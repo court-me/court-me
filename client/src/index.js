@@ -4,6 +4,7 @@ import { store } from './app/store'
 import { Provider } from 'react-redux'
 import { createRoot } from 'react-dom/client';
 
+
 // This file serves as the entry point to our React application.
 // Whenever changes are made to the React components, this file 
 // ensures they get rendered and displayed on the page.
