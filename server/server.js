@@ -2,7 +2,11 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 const cors = require('cors');
+require('dotenv').config()
 
+
+const KEY = process.env.REACT_APP_API_KEY
+const myURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=tennis%20court&location=40.75202376741981,-73.98375569685952&radius=500&key=${KEY}`
 
 
 
@@ -15,7 +19,38 @@ app.use(express.json());
 // Serve the static frontend files from the 'client/dist' directory
 app.use(express.static('client/dist')); // Serve your frontend
 
+app.get('/find', (req, res) => {
+  const courtList = [];
 
+  fetch(myURL)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`Network response not ok: ${response.status}`)
+    }
+    return response.json();
+  })
+  .then((data) => {
+    const results = data['results']
+    
+    for (let i = 0; i < results.length; i++) {
+      let indObject = {
+        name: results[i]['name'],
+        address: results[i]['formatted_address'],
+        rating: results[i]['rating'],
+        _id: results[i]['place_id'],
+        location: results[i]['geometry']['location']
+      }
+      courtList.push(indObject)
+    };
+
+    console.log(courtList)
+    res.status(200).json(courtList)
+
+  })
+  .catch(error => {
+    res.status(500).json({err: 'Failed: GET LOG'})
+  });
+});
 
 
 
