@@ -1,5 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+// const dotenv = require ('dotenv').config({ path: __dirname + '/.env' })
+const Dotenv = require('dotenv-webpack');
+
 
 module.exports = {
     // Starting point of the app, where webpack begins its bundling
@@ -34,11 +38,22 @@ module.exports = {
                   },
                 ],
               },
+              {
+                test: /\.m?js$/,
+                enforce: 'pre',
+                use: ['source-map-loader'],
+              },
         ]
     },
     // Resolve .js and .jsx file extensions when importing
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        fallback: {
+          "fs": false,
+          "os": false,
+          "path": false,
+          "crypto": false,
+        },
     },
     devServer: {
         host: 'localhost',
@@ -77,5 +92,17 @@ module.exports = {
       new HtmlWebpackPlugin({
         title: 'Development',
         template: path.resolve(__dirname, 'client', 'src', 'index.html')
-    })],
+    }),
+
+    new Dotenv({
+      path: './.env',
+      safe: true,
+    }),
+
+    //   new webpack.DefinePlugin({
+    //     // 'process.env': JSON.stringify(dotenv.parsed),
+    //     'process.env.REACT_APP_API_KEY': JSON.stringify(process.env.REACT_APP_API_KEY),
+      
+    // })
+  ],
 };
