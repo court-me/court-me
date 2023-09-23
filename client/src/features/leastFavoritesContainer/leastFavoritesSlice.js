@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = [
-  { id: '1', name: 'Favorite Tennis Court 1', address: '123 Main Street', city: 'San Francisco', state: 'CA', zip: '94101' },
-  { id: '2', name: 'Favorite Tennis Court 2', address: '456 Main Street', city: 'San Francisco', state: 'CA', zip: '94101' },
-  { id: '3', name: 'Favorite Tennis Court 3', address: '789 Main Street', city: 'San Francisco', state: 'CA', zip: '94101' }
+  { id: '1', name: 'Least Favorite Tennis Court 1', address: '123 Side Street', city: 'San Diego', state: 'CA', zip: '81924' },
+  { id: '2', name: 'Least Favorite Tennis Court 2', address: '456 Side Street', city: 'San Diego', state: 'CA', zip: '81924' },
+  { id: '3', name: 'Least Favorite Tennis Court 3', address: '789 Side Street', city: 'San Diego', state: 'CA', zip: '81924' }
 ];
 
-export const favoritesSlice = createSlice({
-  name: 'favorites',
+export const leastFavoritesSlice = createSlice({
+  name: 'leastFavorites',
   initialState,
   reducers: {},
 })
 
-export const { /* pertinent reducers */ } = favoritesSlice.actions
+export const { /* pertinent reducers */ } = leastFavoritesSlice.actions
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -30,4 +30,4 @@ export const { /* pertinent reducers */ } = favoritesSlice.actions
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
 // export const selectCount = (state) => state.counter.value
 
-export default favoritesSlice.reducer
+export default leastFavoritesSlice.reducer
