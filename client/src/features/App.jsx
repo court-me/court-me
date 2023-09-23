@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { Loader } from "@googlemaps/js-api-loader";
-
+import Favorites from './favorites/favorites.jsx';
 
 const App = () => {
   const [map, setMap] = useState([])
@@ -26,8 +27,9 @@ const App = () => {
 
   return (
   <div id="mainContainer">
-    <div id="map" style={{width: '400px', height:'400px'}}>
+ <div id="map" style={{width: '400px', height:'400px'}}>
     </div>
+    <Favorites />
   </div>
 )};
 
