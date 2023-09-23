@@ -8,7 +8,7 @@ export const store = configureStore({
   reducer: {
     map: mapReducer,
     favorites: favoritesReducer,
-    leastFavorites: leastFavoritesReducer
+    leastFavorites: leastFavoritesReducer,
     results: resultsReducer
   },
 })
