@@ -1,16 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const initialState = [
+  { id: '1', name: 'Favorite Tennis Court 1', address: '123 Main Street', city: 'San Francisco', state: 'CA', zip: '94101' },
+  { id: '2', name: 'Favorite Tennis Court 2', address: '456 Main Street', city: 'San Francisco', state: 'CA', zip: '94101' },
+  { id: '3', name: 'Favorite Tennis Court 3', address: '789 Main Street', city: 'San Francisco', state: 'CA', zip: '94101' }
+];
+
 export const favoritesSlice = createSlice({
   name: 'favorites',
-  initialState: {
-    value: 0,
-  },
-  reducers: {
-
-  },
+  initialState,
+  reducers: {},
 })
 
-export const { /* pertinent reducers */ } = counterSlice.actions
+export const { /* pertinent reducers */ } = favoritesSlice.actions
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
