@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Favorite from '../favorite/favorite.jsx';
 
 const Favorites = () => {
+    // console.log(useSelector((state) => console.log(state)))
     const favorites = useSelector((state) => state.favorites);
     // const dispatch = useDispatch();
     const renderedFavorites = favorites.map((favorite, index) => (

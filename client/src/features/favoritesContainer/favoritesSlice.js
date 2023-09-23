@@ -9,7 +9,16 @@ const initialState = [
 export const favoritesSlice = createSlice({
   name: 'favorites',
   initialState,
-  reducers: {},
+  reducers: {
+    // addToFavorites: (state, action) => {
+    //   //i believe here we push the values incoming from the goole api obj 
+    //   //this action will be called when like button is clicked 
+    //   const newFav = action.payload; // Assuming payload contains the new item
+
+    //   // Create a new state by adding the new item to the existing state
+    //   return [...state, newFav];
+    // },
+  },
 })
 
 export const { /* pertinent reducers */ } = favoritesSlice.actions
