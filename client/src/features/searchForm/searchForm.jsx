@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToResults } from '../results/resultsSlice.js';
+
 
 const searchForm= (props) => {
     const dispatch = useDispatch();
 
-    const dummyResult = {
+
+    const tennisLocations = {
         name: 'dummy',
         address: 'dummy road',
-        city: 'dumb city',
-        state: 'dumb york',
-        zip: 'dumb',
+        rating: 4.4
     }
+
+
 
     let onHandleSearch = () => dispatch( 
         addToResults({
-            name: dummyResult.name,
-            address: dummyResult.address,
-            city: dummyResult.city,
-            state: dummyResult.state,
-            zip: dummyResult.zip,
+            name: tennisLocations.name,
+            address: tennisLocations.address,
+            rating: 4.4
         })
     );
 
