@@ -12,7 +12,7 @@ const ResultsCard = (props) => {
 
     // const actionAdd = { type: addToFavorites, payload: { /* ... */ } };
     // const actionDislike = { type: addToDislikes, payload: { /* ... */ } };
-    let onHandleLike = () => dispatch( 
+    let onHandleLike = () => dispatch(
         addToFavorites({
             name: props.data.name,
             address: props.data.address,
@@ -20,23 +20,23 @@ const ResultsCard = (props) => {
         })
     );
 
-    let onHandleDislike = () => dispatch( 
+    let onHandleDislike = () => dispatch(
         addToLeastFavorites({
             name: props.data.name,
             address: props.data.address,
             rating: props.data.rating
         })
     );
-    return(
-        <Card 
-            sx={{ 
+    return (
+        <Card
+            sx={{
                 maxWidth: 400,
                 padding: '16px',
                 mb: 2,
-                '&:hover': { 
+                '&:hover': {
                     transform: 'scale(1.05)',
-                    transition: 'transform .2s ease-in-out' 
-                }, 
+                    transition: 'transform .2s ease-in-out'
+                },
                 backgroundColor: '#32936F'
             }}
         >
@@ -44,27 +44,28 @@ const ResultsCard = (props) => {
                 {props.data.name}
             </Typography>
             <div style={{ marginTop: '10px', marginBottom: '10px' }}>
-                <Button 
-                    variant="contained" 
-                    onClick={onHandleLike} 
+                <Button
+                    variant="contained"
+                    onClick={onHandleLike}
                     sx={{ backgroundColor: '#CCFF00', color: '#395E66', '&:hover': { backgroundColor: '#32936F' } }}
                 >
                     Like
                 </Button>
-                <Button 
-                    variant="outlined" 
-                    onClick={onHandleDislike} 
-                    sx={{ borderColor: '#CCFF00', color: '#CCFF00', '&:hover': { borderColor: '#32936F', color: '#32936F' } }}
+                <Button
+                    variant="outlined"
+                    onClick={onHandleDislike}
+                    sx={{ borderColor: '#CCFF00', color: '#CCFF00', '&:hover': { borderColor: 'black', color: 'yellow' } }}
+                // sx={{ borderColor: '#CCFF00', color: '#CCFF00', '&:hover': { borderColor: '#32936F', color: '#32936F' } }}
                 >
                     Dislike
                 </Button>
             </div>
-            <div id='results' style= {{ textAlign: 'left' }}>
-                    <Typography variant="body1" sx={{ color: '#DFFD91' }}>{props.data.address}</Typography>
-                    <Typography variant="body1" sx={{ color: '#DFFD91' }}>{props.data.rating}</Typography>
+            <div id='results' style={{ textAlign: 'left' }}>
+                <Typography variant="body1" sx={{ color: '#DFFD91' }}>Address: {props.data.address}</Typography>
+                <Typography variant="body1" sx={{ color: '#DFFD91' }}>Rating: {props.data.rating}</Typography>
             </div>
         </Card>
-    ); 
+    );
 };
 
 
