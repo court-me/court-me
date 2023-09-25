@@ -5,8 +5,8 @@ const cors = require('cors');
 require('dotenv').config()
 
 
-const KEY = process.env.REACT_APP_API_KEY
-const myURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=tennis%20court&location=40.75202376741981,-73.98375569685952&radius=500&key=${KEY}`
+const key = process.env.REACT_APP_API_KEY
+// const myURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=tennis+court+in+${zip}&radius=500&key=${key}`
 
 
 
@@ -19,7 +19,9 @@ app.use(express.json());
 // Serve the static frontend files from the 'client/dist' directory
 app.use(express.static('client/dist')); // Serve your frontend
 
-app.get('/find', (req, res) => {
+app.post('/find', (req, res) => {
+  const zip = req.body.zip;
+  const myURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=tennis+court+in+${zip}&radius=500&key=${key}`
   const courtList = [];
 
   fetch(myURL)

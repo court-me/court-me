@@ -12,9 +12,7 @@ const ResultsCard = (props) => {
         addToFavorites({
             name: props.data.name,
             address: props.data.address,
-            city: props.data.city,
-            state: props.data.state,
-            zip: props.data.zip,
+            rating: props.data.rating
         })
     );
 
@@ -22,9 +20,7 @@ const ResultsCard = (props) => {
         addToLeastFavorites({
             name: props.data.name,
             address: props.data.address,
-            city: props.data.city,
-            state: props.data.state,
-            zip: props.data.zip,
+            rating: props.data.rating
         })
     );
     return(
@@ -37,9 +33,7 @@ const ResultsCard = (props) => {
             <div id='results'>
                 <ul>
                     <li>{props.data.address}</li>
-                    <li>{props.data.city}</li>
-                    <li>{props.data.state}</li>
-                    <li>{props.data.zip}</li>
+                    <li>{props.data.rating}</li>
                 </ul>
             </div>
         </div>
