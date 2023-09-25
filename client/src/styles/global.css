@@ -1,0 +1,20 @@
+:root {
+    --neon-green: #CCFF00;
+    --sea-green: #32936F;
+    --jade: #26A96C;
+    --myrtle-green: #387D7A;
+    --dark-slate-gray: #395E66;
+    --turquoise: #26A96C;
+    --steel-blue: #387D7A;
+    --slate-gray: #395E66;
+    --off-yellow: #DFFD91;
+  }
+
+.app-background {
+    background-color: #1E441E;
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+}

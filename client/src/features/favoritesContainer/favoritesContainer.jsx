@@ -5,24 +5,37 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Favorite from '../favorite/favorite.jsx';
+import { Container, Typography, Grid, Paper } from '@mui/material';
 
 const Favorites = () => {
-    // console.log(useSelector((state) => console.log(state)))
     const favorites = useSelector((state) => state.favorites);
-    // const dispatch = useDispatch();
     const renderedFavorites = favorites.map((favorite, index) => (
-        <Favorite key={index} data={favorite}/>
+        <Grid item xs={12} key={index}>
+            <Favorite data={favorite} />
+        </Grid>
     ))
 
     return (
-        <div id="favoritesContainer">
-            <h1>Favorite Tennis Courts</h1>
-            <div id="favoritesList">
-                <ul>
-                    {renderedFavorites}
-                </ul>
-            </div>
-        </div>
+        <Paper sx={{
+          padding: '1rem',
+          backgroundColor: 'var(--steel-blue)',
+          maxHeight: '100vh',
+          overflowY: 'auto',
+          borderRadius: 2, p: 3 ,
+          elevation: 3,
+          marginTop: '10px',
+        }}>
+            <Typography 
+                variant="h4" 
+                component="div" 
+                sx={{ color: 'var(--off-yellow)', mb: 2, textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', textAlign: 'center' }}
+            >
+                Favorite Tennis Courts
+            </Typography>
+            <Grid container spacing={3} direction="column">
+                {renderedFavorites}
+            </Grid>
+        </Paper>
     );
 }
 
