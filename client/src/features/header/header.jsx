@@ -18,6 +18,7 @@ const Header = () => {
           borderRadius: 2, p: 3 ,
           elevation: 3,
           marginTop: '10px',
+          marginLeft: '10px'
         }}>
             <Typography 
                 variant="h4" 
