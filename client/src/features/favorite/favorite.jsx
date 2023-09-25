@@ -6,6 +6,7 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import Button from '@mui/material/Button';
 
 
 const Favorite = (props) => {
@@ -23,6 +24,7 @@ const Favorite = (props) => {
                 <ListItem sx={{ fontFamily: 'Roboto' }}>{props.data.rating}</ListItem>
             </List>
             </div>
+            <Button onClick={() => props.onRemove(props.data.id)}>Remove</Button>
         </Card>
     );
 }
