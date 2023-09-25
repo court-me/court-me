@@ -31,8 +31,11 @@ const mapSlice = createSlice({
             state.center = action.payload.center;
             state.zoom = action.payload.zoom;
         },
+        setGoogleMapInstance: (state, action) => {
+          state.googleMapInstance = action.payload;
+        },
     },
 });
 
-export const { setMap } = mapSlice.actions;
+export const { setMap, setGoogleMapInstance } = mapSlice.actions;
 export default mapSlice.reducer;
