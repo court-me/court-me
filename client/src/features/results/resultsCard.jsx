@@ -2,6 +2,10 @@ import React from "react";
 import { useDispatch } from 'react-redux';
 import { addToFavorites } from '../favoritesContainer/favoritesSlice.js';
 import { addToLeastFavorites } from '../leastFavoritesContainer/leastFavoritesSlice.js'
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import '../../styles/global.css';
 
 const ResultsCard = (props) => {
     const dispatch = useDispatch();
@@ -28,21 +32,44 @@ const ResultsCard = (props) => {
         })
     );
     return(
-        <div id='resultContainer'>
-            <h2>{props.data.name}
-            <br/>
-            <button onClick= {onHandleLike}>Like</button>
-            <button onClick= {onHandleDislike}>Dislike</button>
-            </h2>
-            <div id='results'>
-                <ul>
-                    <li>{props.data.address}</li>
-                    <li>{props.data.city}</li>
-                    <li>{props.data.state}</li>
-                    <li>{props.data.zip}</li>
-                </ul>
+        <Card 
+            sx={{ 
+                maxWidth: 400,
+                padding: '16px',
+                mb: 2,
+                '&:hover': { 
+                    transform: 'scale(1.05)',
+                    transition: 'transform .2s ease-in-out' 
+                }, 
+                backgroundColor: '#32936F'
+            }}
+        >
+            <Typography variant="h5" sx={{ color: '#DFFD91', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+                {props.data.name}
+            </Typography>
+            <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+                <Button 
+                    variant="contained" 
+                    onClick={onHandleLike} 
+                    sx={{ backgroundColor: '#CCFF00', color: '#395E66', '&:hover': { backgroundColor: '#32936F' } }}
+                >
+                    Like
+                </Button>
+                <Button 
+                    variant="outlined" 
+                    onClick={onHandleDislike} 
+                    sx={{ borderColor: '#CCFF00', color: '#CCFF00', '&:hover': { borderColor: '#32936F', color: '#32936F' } }}
+                >
+                    Dislike
+                </Button>
             </div>
-        </div>
+            <div id='results' style= {{ textAlign: 'left' }}>
+                    <Typography variant="body1" sx={{ color: '#DFFD91' }}>{props.data.address}</Typography>
+                    <Typography variant="body1" sx={{ color: '#DFFD91' }}>{props.data.city}</Typography>
+                    <Typography variant="body1" sx={{ color: '#DFFD91' }}>{props.data.state}</Typography>
+                    <Typography variant="body1" sx={{ color: '#DFFD91' }}>{props.data.zip}</Typography>
+            </div>
+        </Card>
     ); 
 };
 

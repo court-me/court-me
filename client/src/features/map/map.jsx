@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // Removed Loader import
 import { loadMap } from './mapSlice';
+import Paper from '@mui/material/Paper';
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const Map = () => {
   }, [center, zoom]); // Removed apiKey and version from the dependency array
 
   return (
-    <div id="map" style={{width: '400px', height:'400px'}}></div>
+    <Paper id="map" style={{width: '685px', height:'400px', marginTop: '10px', marginLeft: '10px'}} elevation={3}></Paper>
   );
 }
 
