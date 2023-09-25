@@ -6,12 +6,18 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Favorite from '../favorite/favorite.jsx';
 import { Container, Typography, Grid, Paper } from '@mui/material';
+import { removeFavorite } from './favoritesSlice.js';
 
 const Favorites = () => {
     const favorites = useSelector((state) => state.favorites);
+    const dispatch = useDispatch();
+    const handleRemove = (id) => {
+        dispatch(removeFavorite({ id }));
+    };
+    
     const renderedFavorites = favorites.map((favorite, index) => (
         <Grid item xs={12} key={index}>
-            <Favorite data={favorite} />
+            <Favorite data={favorite} onRemove={handleRemove}/>
         </Grid>
     ))
 

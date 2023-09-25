@@ -8,10 +8,16 @@ export const leastFavoritesSlice = createSlice({
   reducers: {
     addToLeastFavorites(state, action) {
       state.push(action.payload)
-    }
+    },
+    removeLeastFavorite: (state, action) => {
+      const index = state.findIndex((leastFavorite) => leastFavorite.id === action.payload.id);
+      if (index !== -1) {
+        state.splice(index, 1);
+      }
+    },
   },
 })
 
-export const { addToLeastFavorites } = leastFavoritesSlice.actions;
+export const { addToLeastFavorites, removeLeastFavorite } = leastFavoritesSlice.actions;
 
 export default leastFavoritesSlice.reducer

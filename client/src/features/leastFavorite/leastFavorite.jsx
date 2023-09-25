@@ -6,6 +6,7 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import Button from '@mui/material/Button'
 
 const LeastFavorite = (props) => {
     return (
@@ -22,6 +23,7 @@ const LeastFavorite = (props) => {
                     <ListItem sx={{ fontFamily: 'Roboto' }}>Rating: {props.data.rating}</ListItem>
                 </List>
             </div>
+            <Button onClick={() => props.onRemove(props.data.id)}>Remove</Button>
         </Card>
     );
 }

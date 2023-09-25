@@ -6,15 +6,22 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import LeastFavorite from '../leastFavorite/leastFavorite.jsx';
 import { Container, Typography, Grid, Paper } from '@mui/material';
+import { removeLeastFavorite } from './leastFavoritesSlice.js';
 
 const LeastFavorites = () => {
     const leastFavorites = useSelector((state) => state.leastFavorites);
+    const handleRemove = (id) => {
+        dispatch(removeLeastFavorite({ id }));
+    };
     // const dispatch = useDispatch();
     const renderedLeastFavorites = leastFavorites.map((leastFavorite, index) => (
         <Grid item xs={12} key={index}>
-            <LeastFavorite data={leastFavorite} />
+            <LeastFavorite data={leastFavorite} onRemove={handleRemove}/>
         </Grid>
     ))
+
+    const dispatch = useDispatch();
+
 
     return (
         <Paper sx={{
