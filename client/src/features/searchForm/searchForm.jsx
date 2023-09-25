@@ -3,7 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addToResults } from '../results/resultsSlice.js';
 import { Grid, TextField, Button, Container } from '@mui/material';
 
-const searchForm= (props) => {
+// import { response } from '../../../../server/server.js';
+
+const searchForm = (props) => {
     const dispatch = useDispatch();
 
     let onHandleSearch = () => {
