@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToResults } from '../results/resultsSlice.js';
 import { Grid, TextField, Button, Container } from '@mui/material';
@@ -6,29 +6,38 @@ import { Grid, TextField, Button, Container } from '@mui/material';
 const searchForm= (props) => {
     const dispatch = useDispatch();
 
-    const dummyResult = {
-        name: 'dummy',
-        address: 'dummy road',
-        city: 'dumb city',
-        state: 'dumb york',
-        zip: 'dumb',
-    }
+    let onHandleSearch = () => {
+        const inputVal = document.getElementById("inputSearch").value;
 
-    let onHandleSearch = () => dispatch( 
-        addToResults({
-            name: dummyResult.name,
-            address: dummyResult.address,
-            city: dummyResult.city,
-            state: dummyResult.state,
-            zip: dummyResult.zip,
+        fetch("api/find/", {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({
+                "zip": inputVal
+            })
         })
-    );
+            .then(response => {
+                return response.json()
+                    .then(response => {
+                        // dispatch(addToResults(''))
+                        response.forEach((el) => {
+                            dispatch(addToResults({
+                                name: el.name,
+                                address: el.address,
+                                rating: el.rating
+                            }))
+                        });
+                    }
+                    )
 
+            })
+    }
     return (
       <Container>
         <Grid container spacing={1} justifyContent="center" alignItems="center">
           <Grid item xs={10} sm={5}>
             <TextField 
+              id="inputSearch"
               label="Zip Code" 
               variant="outlined" 
               fullWidth 

@@ -16,9 +16,7 @@ const ResultsCard = (props) => {
         addToFavorites({
             name: props.data.name,
             address: props.data.address,
-            city: props.data.city,
-            state: props.data.state,
-            zip: props.data.zip,
+            rating: props.data.rating
         })
     );
 
@@ -26,9 +24,7 @@ const ResultsCard = (props) => {
         addToLeastFavorites({
             name: props.data.name,
             address: props.data.address,
-            city: props.data.city,
-            state: props.data.state,
-            zip: props.data.zip,
+            rating: props.data.rating
         })
     );
     return(
@@ -65,9 +61,7 @@ const ResultsCard = (props) => {
             </div>
             <div id='results' style= {{ textAlign: 'left' }}>
                     <Typography variant="body1" sx={{ color: '#DFFD91' }}>{props.data.address}</Typography>
-                    <Typography variant="body1" sx={{ color: '#DFFD91' }}>{props.data.city}</Typography>
-                    <Typography variant="body1" sx={{ color: '#DFFD91' }}>{props.data.state}</Typography>
-                    <Typography variant="body1" sx={{ color: '#DFFD91' }}>{props.data.zip}</Typography>
+                    <Typography variant="body1" sx={{ color: '#DFFD91' }}>{props.data.rating}</Typography>
             </div>
         </Card>
     ); 

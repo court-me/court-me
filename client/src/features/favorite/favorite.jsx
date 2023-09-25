@@ -20,9 +20,7 @@ const Favorite = (props) => {
             <div id='favorite'>
             <List id='favorite' sx={{ color: 'var(--off-yellow)' }}>
                 <ListItem sx={{ fontFamily: 'Roboto' }}>{props.data.address}</ListItem>
-                <ListItem sx={{ fontFamily: 'Roboto' }}>{props.data.city}</ListItem>
-                <ListItem sx={{ fontFamily: 'Roboto' }}>{props.data.state}</ListItem>
-                <ListItem sx={{ fontFamily: 'Roboto' }}>{props.data.zip}</ListItem>
+                <ListItem sx={{ fontFamily: 'Roboto' }}>{props.data.rating}</ListItem>
             </List>
             </div>
         </Card>
