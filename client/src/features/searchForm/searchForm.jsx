@@ -7,15 +7,6 @@ import { addToResults } from '../results/resultsSlice.js';
 const searchForm = (props) => {
     const dispatch = useDispatch();
 
-
-    const tennisLocations = {
-        name: 'dummy',
-        address: 'dummy road',
-        rating: 4.4
-    }
-
-
-
     let onHandleSearch = () => {
         const inputVal = document.getElementById("inputSearch").value;
 
@@ -23,26 +14,23 @@ const searchForm = (props) => {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
-                zip: 10001
+                "zip": inputVal
             })
         })
             .then(response => {
                 return response.json()
                     .then(response => {
-                        console.log('response', response)
+                        response.forEach((el) => {
+                            dispatch(addToResults({
+                                name: el.name,
+                                address: el.address,
+                                rating: el.rating
+                            }))
+                        });
                     }
                     )
-            })
 
-        return dispatch(
-            addToResults({
-                name: dummyResult.name,
-                address: dummyResult.address,
-                city: dummyResult.city,
-                state: dummyResult.state,
-                zip: dummyResult.zip,
             })
-        );
     }
     return (
         <div id="searchForm">
