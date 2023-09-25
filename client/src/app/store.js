@@ -1,8 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
-// import reducer here after creating
+import favoritesReducer from '../features/favoritesContainer/favoritesSlice'
+import leastFavoritesReducer from '../features/leastFavoritesContainer/leastFavoritesSlice'
+import mapReducer from '../features/map/mapSlice'
+import resultsReducer from '../features/results/resultsSlice'
 
-export default configureStore({
+export const store = configureStore({
   reducer: {
-    // name of reducer : name of import
-  }
+    map: mapReducer,
+    favorites: favoritesReducer,
+    leastFavorites: leastFavoritesReducer,
+    results: resultsReducer
+  },
 })
