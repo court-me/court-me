@@ -30,7 +30,7 @@ const Map = () => {
   }, [center, zoom]); // Removed apiKey and version from the dependency array
 
   return (
-    <Paper id="map" style={{width: '685px', height:'400px', marginTop: '10px', marginLeft: '10px'}} elevation={3}></Paper>
+    <Paper id="map" style={{width: '100%', height:'50vh', marginTop: '10px', marginLeft: '10px'}} elevation={3}></Paper>
   );
 }
 
