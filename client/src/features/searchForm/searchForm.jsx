@@ -2,31 +2,40 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToResults } from '../results/resultsSlice.js';
 
+// import { response } from '../../../../server/server.js';
 
-const searchForm= (props) => {
+const searchForm = (props) => {
     const dispatch = useDispatch();
 
+    let onHandleSearch = () => {
+        const inputVal = document.getElementById("inputSearch").value;
 
-    const tennisLocations = {
-        name: 'dummy',
-        address: 'dummy road',
-        rating: 4.4
-    }
-
-
-
-    let onHandleSearch = () => dispatch( 
-        addToResults({
-            name: tennisLocations.name,
-            address: tennisLocations.address,
-            rating: 4.4
+        fetch("api/find/", {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({
+                "zip": inputVal
+            })
         })
-    );
+            .then(response => {
+                return response.json()
+                    .then(response => {
+                        response.forEach((el) => {
+                            dispatch(addToResults({
+                                name: el.name,
+                                address: el.address,
+                                rating: el.rating
+                            }))
+                        });
+                    }
+                    )
 
+            })
+    }
     return (
         <div id="searchForm">
-            <input></input>
-            <button onClick= {onHandleSearch}>Search</button>
+            <input id="inputSearch"></input>
+            <button onClick={onHandleSearch}>Search</button>
         </div>
     );
 }
