@@ -10,9 +10,7 @@ const Favorite = (props) => {
             <div id="favorite">
                 <ul>
                     <li>{props.data.address}</li>
-                    <li>{props.data.city}</li>
-                    <li>{props.data.state}</li>
-                    <li>{props.data.zip}</li>
+                    <li>{props.data.rating}</li>
                 </ul>
             </div>
         </div>
