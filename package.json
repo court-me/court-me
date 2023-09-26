@@ -7,8 +7,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon server/server.js",
         "build": "webpack --config webpack.config.js",
-        "dev": "webpack-dev-server --hot --progress --color",
-        "start:both": "concurrently \"npm run start\" \"npm run dev\""
+        "dev": "-dev-server --hot --progress --color",
+        "both": "concurrently \"npm run start\" \"npm run dev\""
     },
     "keywords": [],
     "author": "",
