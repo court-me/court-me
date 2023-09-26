@@ -6,7 +6,7 @@ import Map from './map/map.jsx'
 import SearchFormContainer from './searchFormContainer/searchFormContainer.jsx';
 import Grid from '@mui/material/Grid';
 import '../styles/global.css'
-
+import Header from './header/header.jsx'
 
 const App = () => {
   return (
@@ -14,6 +14,9 @@ const App = () => {
     <Grid container spacing={3} className="app-background">
       <Grid item xs={12} md={6}>
         <Grid container spacing={2}>
+        <Grid item xs={12}>
+            <Header/>
+          </Grid>
           <Grid item xs={12}>
             <Map />
           </Grid>
