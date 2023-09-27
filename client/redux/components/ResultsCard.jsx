@@ -1,11 +1,10 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
-import { addToFavorites } from '../favoritesContainer/favoritesSlice.js';
-import { addToLeastFavorites } from '../leastFavoritesContainer/leastFavoritesSlice.js'
+import { addToFavorites } from '../reducers/favoritesSlice.js';
+// import { addToLeastFavorites } from '../reducers/leastFavoritesSlice.js'
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import '../../styles/global.css';
 
 const ResultsCard = (props) => {
     const dispatch = useDispatch();
