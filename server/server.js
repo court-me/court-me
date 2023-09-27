@@ -22,7 +22,7 @@ app.use(express.static('client/dist')); // Serve your frontend
 
 app.post('/api/find', (req, res) => {
   const zip = req.body.zip;
-  console.log('zip', zip);
+  // console.log('zip', zip);
   const myURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=tennis+court+in+${zip}&radius=500&key=${key}`
   const courtList = [];
 
@@ -34,6 +34,7 @@ app.post('/api/find', (req, res) => {
       return response.json();
     })
     .then((data) => {
+      // console.log('data', data);
       const results = data['results']
 
       for (let i = 0; i < results.length; i++) {
