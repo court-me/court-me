@@ -6,7 +6,6 @@ import { setMap } from '../reducers/mapSlice.js';
 import { loadMap } from '../reducers/mapSlice.js';
 
 
-
 const searchForm = (props) => {
     const dispatch = useDispatch();
     const google = window.google;
@@ -28,40 +27,45 @@ const searchForm = (props) => {
         })
             .then(response => response.json())
             .then(response => {
-                // console.log('RESPONSE LOOK HERE', response);
+                console.log('RESPONSE LOOK HERE', response);
                 const currentMap = googleMapInstance;
+
                 let newLat = response[0].location.lat
                 let newLng = response[0].location.lng
                 let mapPosition = { lat: newLat, lng: newLng }
                 dispatch(setMap({ center: mapPosition, zoom: 14 }));
-                // invoke load map, passing in the lat/long from inputVal
+
+                // Map each response item and add markers
                 response.forEach((el) => {
                     let position = { lat: el.location.lat, lng: el.location.lng }
-                    new google.maps.Marker({
+                    const marker = new google.maps.Marker({
                         position: position,
                         map: currentMap,
                         title: el.name
-                    })
+                    });
+                    marker.addListener("click", () => {
+                        const infoWindow = new google.maps.InfoWindow({
+                            content: `
+                            <div>
+                                <h3>${el.name}</h3>
+                                <p>Address: ${el.address}</p>
+                                <p>Rating: ${el.rating}</p>
+                            </div>
+                        `,
+                        });
+
+                        infoWindow.open(currentMap, marker);
+                    });
+
                     dispatch(addToResults({
                         name: el.name,
                         address: el.address,
                         rating: el.rating
-                    }))
+                    }));
                 });
-
-            }
-            )
+            });
     }
 
-    // useEffect(() => {
-    //     initMap(){
-    //         const { Map, InfoWindow } = google.maps.importLibrary("maps");
-    //         const { AdvancedMarkerElement, PinElement } = google.maps.importLibrary(
-    //             "marker",
-    //         );
-
-    //     }
-    // }, [])
     return (
         <Container>
             <Grid container spacing={1} justifyContent="center" alignItems="center">
