@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // Removed Loader import
-import { loadMap, setGoogleMapInstance } from './mapSlice';
+import { loadMap, setGoogleMapInstance } from '../reducers/mapSlice';
 import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,9 @@ const Map = () => {
   }, [center, zoom]); // Removed apiKey and version from the dependency array
 
   return (
+    <Grid item xs={12}>
     <Paper id="map" style={{width: '100%', height:'50vh', marginTop: '10px', marginLeft: '10px'}} elevation={3}></Paper>
+    </Grid>
   );
 }
 

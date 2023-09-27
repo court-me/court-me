@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToResults, clearResults } from '../results/resultsSlice.js';
+import { addToResults, clearResults } from '../reducers/resultsSlice.js';
 import { Grid, TextField, Button, Container } from '@mui/material';
-import { setMap } from '../map/mapSlice';
-import { loadMap } from '../map/mapSlice';
+import { setMap } from '../reducers/mapSlice.js';
+import { loadMap } from '../reducers/mapSlice.js';
 
 // import { response } from '../../../../server/server.js';
 
@@ -16,9 +16,7 @@ const searchForm = (props) => {
         //----
         dispatch(clearResults());
 
-
         const inputVal = document.getElementById("inputSearch").value;
-
 
         console.log('inputVal', inputVal);
         fetch("api/find/", {
@@ -28,32 +26,31 @@ const searchForm = (props) => {
                 "zip": inputVal
             })
         })
+            .then(response => response.json())
             .then(response => {
-                return response.json()
-                    .then(response => {
-                      const currentMap = googleMapInstance;
-                      let newLat = response[0].location.lat
-                      let newLng = response[0].location.lng
-                      let mapPosition = { lat: newLat, lng: newLng }
-                      dispatch(setMap({ center: mapPosition, zoom: 12 }));
-                        // invoke load map, passing in the lat/long from inputVal
-                        response.forEach((el) => {
-                            let position = { lat: el.location.lat, lng: el.location.lng }
-                            new google.maps.Marker({
-                              position: position, 
-                              map: currentMap,
-                              title: el.name
-                            })
-                            dispatch(addToResults({
-                                name: el.name,
-                                address: el.address,
-                                rating: el.rating
-                            }))
-                        });
+                console.log('RESPONSE LOOK HERE', response);
+                const currentMap = googleMapInstance;
+                let newLat = response[0].location.lat
+                let newLng = response[0].location.lng
+                let mapPosition = { lat: newLat, lng: newLng }
+                dispatch(setMap({ center: mapPosition, zoom: 12 }));
+                // invoke load map, passing in the lat/long from inputVal
+                response.forEach((el) => {
+                    let position = { lat: el.location.lat, lng: el.location.lng }
+                    new google.maps.Marker({
+                        position: position, 
+                        map: currentMap,
+                        title: el.name
+                    })
+                    dispatch(addToResults({
+                        name: el.name,
+                        address: el.address,
+                        rating: el.rating
+                    }))
+                });
 
-                    }
-                    )
-            })
+            }
+            )
     }
     return (
         <Container>
