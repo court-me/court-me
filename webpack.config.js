@@ -7,7 +7,7 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     // Starting point of the app, where webpack begins its bundling
-    entry: './client/src/index.js',
+    entry: './client/index.js',
     // Mode set to development (can be 'production' for optimized build)
     mode: 'development',
     module: {
@@ -27,8 +27,12 @@ module.exports = {
                 }
               },
               {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                test: /\.s[ac]ss$/i,
+                use: [
+                  'style-loader', 
+                  'css-loader',
+                  'sass-loader'
+                ],
               },
               {
                 test: /\.(png|jpe?g|gif|svg)$/i,
@@ -60,7 +64,7 @@ module.exports = {
         port: 8080,
         // Serve files from the specified directory
         static: {
-            directory: path.resolve(__dirname, 'client/dist'),
+            directory: path.resolve(__dirname, 'dist'),
             publicPath: '/'
         },
         // Hot-reloading: auto-refresh browser on changes
@@ -70,7 +74,7 @@ module.exports = {
         headers: {'Access-Control-Allow-Origin': '*'},
         // Proxy API requests to our express server running on port 3000
         proxy: {
-            '/api': {
+            '/api/**': {
               target: 'http://localhost:3000/',
               secure: false,
               changeOrigin: true
@@ -91,7 +95,7 @@ module.exports = {
       // Auto-generate an HTML file that includes the webpack bundles
       new HtmlWebpackPlugin({
         title: 'Development',
-        template: path.resolve(__dirname, 'client', 'src', 'index.html')
+        template: path.resolve(__dirname, 'client/index.html')
     }),
 
     new Dotenv({
