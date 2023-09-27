@@ -4,9 +4,9 @@
 
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import LeastFavorite from '../leastFavorite/leastFavorite.jsx';
+// import LeastFavorite from '../components/LeastFavorite.jsx';
 import { Container, Typography, Grid, Paper } from '@mui/material';
-import { removeLeastFavorite } from './leastFavoritesSlice.js';
+// import { removeLeastFavorite } from '../reducers/leastFavoritesSlice.js';
 
 const LeastFavorites = () => {
     const leastFavorites = useSelector((state) => state.leastFavorites);
@@ -37,7 +37,13 @@ const LeastFavorites = () => {
             <Typography
                 variant="h4"
                 component="div"
-                sx={{ color: 'var(--off-yellow)', mb: 2, textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', textAlign: 'center' }}>
+                sx={{ 
+                    color: 'var(--off-yellow)', 
+                    mb: 2, 
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', 
+                    textAlign: 'center' 
+                    }}
+                    >
                 Least Favorite Tennis Courts
             </Typography>
             <Grid container spacing={3} direction="column">

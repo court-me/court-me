@@ -4,12 +4,13 @@ import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 
 const Header = () => {
 
   return (
-    <div>
+    <Grid item xs={12}>
        <Paper sx={{
           padding: '1rem',
           backgroundColor: 'var(--steel-blue)',
@@ -29,7 +30,7 @@ const Header = () => {
             </Typography>
 
         </Paper>
-    </div>
+    </Grid>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ResultsCard from './resultsCard.jsx'
+import ResultsCard from '../components/ResultsCard.jsx';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container'
 import Paper from '@mui/material/Paper';
@@ -17,7 +17,7 @@ const Results = () => {
     ))
     
     return (
-        <>
+        <Grid item xs={12}>
             {results.length > 0 && (
                 <Paper elevation={3} >
                     <Container maxWidth="lg" sx={{ backgroundColor: '#152614', p: 2, }}>
@@ -34,7 +34,7 @@ const Results = () => {
                     </Container>
                 </Paper>
             )}
-        </>
+        </Grid>
     );
 };
 
