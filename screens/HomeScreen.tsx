@@ -17,7 +17,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to CourtMe</Text>
+      <Text style={styles.title}>Welcome to CourtMe - you logged in successfully.</Text>
       <Button title="Sign Out" onPress={handleSignOut} />
     </View>
   );
