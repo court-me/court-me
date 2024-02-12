@@ -1,41 +1,141 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
-node_modules/
-
-# Expo
-.expo/
-dist/
-web-build/
-
-# Native
-*.orig.*
+# Expo & React Native
+.expo/*
+npm-debug.*
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
-
-# Metro
-.metro-health-check*
-
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
+*.log
+*.svn
+*.idea
+*.DS_Store
+web-build/
+assets/**/*.svg
+metro.config.js
+metro-bundler-config.json
+react-native.config.js
 
 # macOS
 .DS_Store
-*.pem
+.AppleDouble
+.LSOverride
 
-# local env files
-.env*.local
+# Thumbnails
+._*
 
-# typescript
-*.tsbuildinfo
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
-# add app.json to git ignore
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS X
+.DS_Store
+
+# Xcode
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+
+# Android/IntelliJ
+build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# Keystore files
+*.jks
+*.keystore
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+*.bak
+*.sublime-project
+*.sublime-workspace
+*.tlog
+*.vscode
+*.spyderproject
+*.suo
+*.ntvs*
+*.njsproj
+*.esproj
+*.sln
+*.sw?
+*.bk?
+
+# Yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.yarn-integrity
+
+# iOS/Pods
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/.generated/
+ios/Flutter/Generated.xcconfig
+
+# Android
+android/.gradle
+android/captures/
+android/gradlew
+android/gradlew.bat
+android/local.properties
+android/*/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Others
+.vscode/
+expo-debug.log
+*.log
+*.tmp
+*.tmp.*
+*.bak
+*.swp
+*.lock
+
 app.json
 GoogleService-Info.plist
-GoogleService-Info-1.plist
 firebaseConfig.js
+TODO.md
