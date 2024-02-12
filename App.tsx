@@ -4,6 +4,7 @@ import app from "./firebaseConfig";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from "firebase/auth";
 import * as Google from "expo-auth-session/providers/google";
 import { ResponseType } from "expo-auth-session";
+import { AuthProvider } from "./src/contexts/AuthContext";
 
 import { StatusBar } from "expo-status-bar";
 
