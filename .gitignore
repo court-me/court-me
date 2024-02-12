@@ -30,12 +30,14 @@ yarn-error.*
 
 # local env files
 .env*.local
+.env
 
 # typescript
 *.tsbuildinfo
 
 # add app.json to git ignore
 app.json
+app.config.js
 GoogleService-Info.plist
 GoogleService-Info-1.plist
 firebaseConfig.js
