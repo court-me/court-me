@@ -41,3 +41,7 @@ app.config.js
 GoogleService-Info.plist
 GoogleService-Info-1.plist
 firebaseConfig.js
+firebase.json
+.firebaserc
+metro.config.js
+public

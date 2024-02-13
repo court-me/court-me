@@ -19,6 +19,7 @@
     "expo-firebase-core": "^6.0.0",
     "expo-status-bar": "~1.11.1",
     "firebase": "^10.8.0",
+    "firebaseui": "^6.1.0",
     "react": "18.2.0",
     "react-native": "0.73.4",
     "react-native-safe-area-context": "4.8.2",
