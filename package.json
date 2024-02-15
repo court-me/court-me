@@ -13,6 +13,8 @@
     "@react-native-firebase/app": "^18.8.0",
     "@react-navigation/native": "^6.1.10",
     "@react-navigation/native-stack": "^6.9.18",
+    "@rneui/base": "^4.0.0-rc.7",
+    "@rneui/themed": "^4.0.0-rc.8",
     "dotenv": "^16.4.2",
     "expo": "~50.0.6",
     "expo-auth-session": "~5.4.0",
@@ -22,6 +24,7 @@
     "firebaseui": "^6.1.0",
     "react": "18.2.0",
     "react-native": "0.73.4",
+    "react-native-firebaseui-auth": "^1.4.0",
     "react-native-safe-area-context": "4.8.2",
     "react-native-screens": "~3.29.0"
   },
